@@ -83,7 +83,8 @@ plugins = { _ob_ }
             f.close()
     except Exception as e:
         pass
-    print( json.dumps(MODULES_METHODS, sort_keys=True, indent=4) )
+
+print( json.dumps(MODULES_METHODS, sort_keys=True, indent=4) )
 
 
 
