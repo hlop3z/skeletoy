@@ -1,4 +1,5 @@
 import setuptools, json, pathlib, os
+from . import manager
 
 """
 [USAGE]:
@@ -27,7 +28,7 @@ include requirements.txt
 """.strip()
 
 
-set_modules_init()
+manager.set_modules_init()
 
 with open("CONFIG.json", "r") as f:
     CONFIG = json.load(f)

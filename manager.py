@@ -75,7 +75,7 @@ def set_modules_init():
 
 # STRUCTURE
 plugins = { _ob_ }
-{ json.dumps(MODULES_METHODS, sort_keys=True, indent=4) }
+{ MODULES_METHODS }
 { _cb_ }
         """.strip()
         with open(f"{ PROJECT.name }/__init__.py", "w") as f:
@@ -84,7 +84,6 @@ plugins = { _ob_ }
     except Exception as e:
         pass
 
-set_modules_init()
 
 
 def main():
