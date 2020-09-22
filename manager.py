@@ -81,11 +81,11 @@ plugins = { _ob_ }
         with open(f"{ PROJECT.name }/__init__.py", "w") as f:
             f.write( MODULES_TEXT )
             f.close()
+        print( json.dumps(MODULES_METHODS, sort_keys=True, indent=4) )
     except Exception as e:
         pass
 
-print( json.dumps(MODULES_METHODS, sort_keys=True, indent=4) )
-
+set_modules_init()
 
 
 def main():
