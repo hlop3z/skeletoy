@@ -74,7 +74,7 @@ def set_modules_init():
 
 
 # STRUCTURE
-plugins = { _ob_ }
+__plugins__ = { _ob_ }
 { MODULES_METHODS }
 { _cb_ }
         """.strip()
