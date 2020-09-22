@@ -4,6 +4,6 @@ from . import __demo__
 
 
 # STRUCTURE
-plugins = {
+__plugins__ = {
 "__demo__" : __demo__.__dir__(),
 }
