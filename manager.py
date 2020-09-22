@@ -40,6 +40,10 @@ def _import_plugins():
             import_module(f"{__name__}.{name[:-3]}")
     '''.strip()
 
+
+
+
+
 PLUGIN_EXAMPLE = '''
 from . import register_plugin
 
@@ -54,9 +58,39 @@ def hello():
     print("Hello from < Function >")
 '''.strip()
 
+
+
+def set_modules_init():
+    try:
+        PROJECT_MODULES     = list(filter(lambda x: x not in ["__pycache__"], [ x for x in os.walk( f"{ PROJECT }/{ PROJECT.name }") ][0][1]))
+        MODULES_IMPORT_TEXT = "\n".join([f"from . import { module }"for module in PROJECT_MODULES])
+        MODULES_METHODS     = "\n".join( [ f'''"{ module }" : { module }.__dir__(),''' for module in PROJECT_MODULES] )
+        _ob_                = "{"
+        _cb_                = "}"
+        MODULES_TEXT        = f"""
+# MODULES
+{ MODULES_IMPORT_TEXT }
+
+
+
+# STRUCTURE
+plugins = { _ob_ }
+{ MODULES_METHODS }
+{ _cb_ }
+        """.strip()
+        with open(f"{ PROJECT.name }/__init__.py", "w") as f:
+            f.write( MODULES_TEXT )
+            f.close()
+    except Exception as e:
+        pass
+    print( json.dumps(MODULES_METHODS, sort_keys=True, indent=4) )
+
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-m','--module', nargs=1, help='''Create new "Module" for your project.''')
+    parser.add_argument('-u','--update', action='store_true', help='''Update "Modules" __init__.py''')
     args = parser.parse_args()
 
     if args.module:

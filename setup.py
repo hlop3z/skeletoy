@@ -26,29 +26,6 @@ include requirements.txt
 { GET_DATA_FILES('views') }
 """.strip()
 
-def set_modules_init():
-    try:
-        PROJECT_MODULES     = list(filter(lambda x: x not in ["__pycache__"], [ x for x in os.walk( f"{ PROJECT }/{ PROJECT.name }") ][0][1]))
-        MODULES_IMPORT_TEXT = "\n".join([f"from . import { module }"for module in PROJECT_MODULES])
-        MODULES_METHODS     = "\n".join( [ f'''"{ module }" : { module }.__dir__(),''' for module in PROJECT_MODULES] )
-        _ob_                = "{"
-        _cb_                = "}"
-        MODULES_TEXT        = f"""
-# MODULES
-{ MODULES_IMPORT_TEXT }
-
-
-
-# STRUCTURE
-plugins = { _ob_ }
-{ MODULES_METHODS }
-{ _cb_ }
-        """.strip()
-        with open(f"{ PROJECT.name }/__init__.py", "w") as f:
-            f.write( MODULES_TEXT )
-            f.close()
-    except Exception as e:
-        pass
 
 set_modules_init()
 
