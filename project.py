@@ -11,7 +11,7 @@ def new_project(name):
 import { app_name }
 
 # Modules
-print( { app_name }.plugins )
+print( { app_name }.__plugins__ )
 
 # Class
 { app_name }.__demo__.Plugin().hello()
