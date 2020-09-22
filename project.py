@@ -5,7 +5,7 @@ cmd  = lambda x: subprocess.run(x, check=True, shell=True)
 
 def new_project(name):
     app_name = name.lower().replace('-','_')
-    cmd(f'git clone https://github.com/hlop3z/python_skeleton')
+    cmd(f'git clone https://github.com/hlop3z/skeletoy')
 
     EXAMPLE_FILE = f"""
 import { app_name }
@@ -21,31 +21,31 @@ print( { app_name }.plugins )
     """.strip()
 
     try:
-        shutil.rmtree("python_skeleton/.git")
-        shutil.rmtree("python_skeleton/tests")
-        shutil.rmtree("python_skeleton/examples")
-        shutil.rmtree("python_skeleton/dist")
-        shutil.rmtree("python_skeleton/python_skeleton.egg-info")
-        os.remove("python_skeleton/project.py")
+        shutil.rmtree("skeletoy/.git")
+        shutil.rmtree("skeletoy/tests")
+        shutil.rmtree("skeletoy/examples")
+        shutil.rmtree("skeletoy/dist")
+        shutil.rmtree("skeletoy/skeletoy.egg-info")
+        os.remove("skeletoy/project.py")
     except Exception as e:
         raise
 
 
-    os.mkdir('python_skeleton/examples')
-    os.mkdir('python_skeleton/tests')
+    os.mkdir('skeletoy/examples')
+    os.mkdir('skeletoy/tests')
 
-    with open("python_skeleton/examples/example.py", "w") as f:
+    with open("skeletoy/examples/example.py", "w") as f:
         f.write( EXAMPLE_FILE )
         f.close()
 
-    shutil.move("python_skeleton/python_skeleton", f"python_skeleton/{ app_name }")
-    shutil.move("python_skeleton", app_name)
+    shutil.move("skeletoy/skeletoy", f"skeletoy/{ app_name }")
+    shutil.move("skeletoy", app_name)
 
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('project', nargs=1, help='''Clone Github "hlop3z/python_skeleton" for a new project''')
+    parser.add_argument('project', nargs=1, help='''Clone Github "hlop3z/skeletoy" for a new project''')
     args = parser.parse_args()
 
     if args.project: new_project( args.project[0] )
