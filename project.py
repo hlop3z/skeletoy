@@ -8,6 +8,11 @@ def new_project(name):
     cmd(f'git clone https://github.com/hlop3z/skeletoy')
 
     EXAMPLE_FILE = f"""
+import sys
+
+sys.path.append('../{ app_name }')
+
+
 import { app_name }
 
 # Modules
