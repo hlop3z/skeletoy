@@ -1,10 +1,10 @@
-import python_skeleton
+import skeletoy
 
 # Modules
-print( python_skeleton.plugins )
+print( skeletoy.plugins )
 
 # Class
-python_skeleton.__demo__.Plugin().hello()
+skeletoy.__demo__.Plugin().hello()
 
 # Def
-python_skeleton.__demo__.hello()
+skeletoy.__demo__.hello()
