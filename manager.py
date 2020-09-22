@@ -56,14 +56,14 @@ def hello():
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('module', nargs=1, help='''Create new "Module" for your project.''')
+    parser.add_argument('-m','--module', nargs=1, help='''Create new "Module" for your project.''')
     args = parser.parse_args()
 
     if args.module:
         app_name = args.module[0].lower().replace('-','_')
         app_path = f"{ PROJECT.name }/{ app_name }"
 
-        try                  : os.mkdir( app_path )
+        try : os.mkdir( app_path )
         except Exception as e: pass
 
         with open(f"{ app_path }/__init__.py", "w") as f:

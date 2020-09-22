@@ -28,7 +28,7 @@ print( { app_name }.plugins )
         shutil.rmtree("skeletoy/skeletoy.egg-info")
         os.remove("skeletoy/project.py")
     except Exception as e:
-        raise
+        pass
 
 
     os.mkdir('skeletoy/examples')
