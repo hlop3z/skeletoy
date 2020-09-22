@@ -1,4 +1,6 @@
-import skeletoy
+import sys
+
+sys.path.append('../skeletoy')
 
 # Modules
 print( skeletoy.__plugins__ )
