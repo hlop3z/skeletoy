@@ -88,8 +88,7 @@ plugins = { _ob_ }
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-m','--module', nargs=1, help='''Create new "Module" for your project.''')
-    parser.add_argument('-u','--update', action='store_true', help='''Update "Modules" __init__.py''')
+    parser.add_argument('module', nargs=1, help='''Create new "Module" for your project.''')
     args = parser.parse_args()
 
     if args.module:
@@ -106,6 +105,8 @@ def main():
         with open(f"{ app_path }/example.py", "w") as f:
             f.write( PLUGIN_EXAMPLE )
             f.close()
+
+        set_modules_init()
 
     else: pass
 
