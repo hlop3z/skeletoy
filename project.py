@@ -4,7 +4,7 @@ PATH = os.getcwd()
 cmd  = lambda x: subprocess.run(x, check=True, shell=True)
 
 def new_project(name):
-    app_name = name.lower().replace('-','_')
+    app_name = name.lower().replace('-','_').strip()
     cmd(f'git clone https://github.com/hlop3z/skeletoy')
 
     EXAMPLE_FILE = f"""

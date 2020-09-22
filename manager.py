@@ -60,7 +60,7 @@ def main():
     args = parser.parse_args()
 
     if args.module:
-        app_name = args.module[0].lower().replace('-','_')
+        app_name = args.module[0].lower().replace('-','_').strip()
         app_path = f"{ PROJECT.name }/{ app_name }"
 
         try : os.mkdir( app_path )
