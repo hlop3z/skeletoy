@@ -1,5 +1,4 @@
-# python_skeleton
-Cookie-Cutter Project
+# Cookie-Cutter Python Module
 
 # New File
 ```
