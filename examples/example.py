@@ -1,7 +1,7 @@
 import skeletoy
 
 # Modules
-print( skeletoy.plugins )
+print( skeletoy.__plugins__ )
 
 # Class
 skeletoy.__demo__.Plugin().hello()
