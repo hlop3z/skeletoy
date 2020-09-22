@@ -75,13 +75,12 @@ def set_modules_init():
 
 # STRUCTURE
 plugins = { _ob_ }
-{ MODULES_METHODS }
+{ json.dumps(MODULES_METHODS, sort_keys=True, indent=4) }
 { _cb_ }
         """.strip()
         with open(f"{ PROJECT.name }/__init__.py", "w") as f:
             f.write( MODULES_TEXT )
             f.close()
-        print( json.dumps(MODULES_METHODS, sort_keys=True, indent=4) )
     except Exception as e:
         pass
 
